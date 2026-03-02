@@ -1,24 +1,25 @@
-import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Auth from './pages/Auth';
-import Checkout from './pages/Checkout';
-import Navbar from './components/Navbar';
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Auth from "./pages/Auth";
+import Checkout from "./pages/Checkout";
+import Navbar from "./components/Navbar";
 
-import './App.css';
+import "./App.css";
+import AuthProvider from "./context/AuthContext";
 
 function App() {
   return (
-    <div className='app'>
+    <AuthProvider>
+      <div className="app">
         <Navbar />
-            <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/checkout" element={<Checkout />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
-    </div>
+      </div>
+    </AuthProvider>
   );
 }
 
-
-export default App
- 
+export default App;
